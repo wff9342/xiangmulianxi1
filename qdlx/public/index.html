@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title></title>
+    
+    <!-- <script src="https://unpkg.com/vue"></script> -->
+    
+  </head>
+  <body>
+    <div >
+            <h1>用户登录</h1>
+    </div>
+    <form id='form1'>
+        <fieldset>
+            <div >
+                <label  for="input01">用户名</label>
+                <div >
+                    <input id='a2' v-model="username" placeholder="请输入您的用户名"  type="text">
+                </div>
+                </div>
+            <div >
+                <label  for="input01">密码</label>
+                <div >
+                    <input id='a3' v-model="userpassworld" placeholder="请输入您的密码"  type="password">
+                </div>
+                </div>
+            <div>
+                <label ></label>
+                <div >
+                    <input id='a1' v-on:click="reverseMessage" type="button" value="登陆" />
+                </div>
+            </div>
+        </fieldset>
+    </form>
+   
+   <script>
+        var form1 = new Vue({
+            el: '#form1',
+            data: {
+                username:'',
+                userpassworld:''
+            },
+            methods: {
+                reverseMessage: function () {
+                    var xmlhttp;
+                    if (window.XMLHttpRequest)
+                    {
+                        xmlhttp=new XMLHttpRequest();
+                    }
+                    else
+                    {
+                        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange=function()
+                    {
+                        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                        {
+                            
+                             document.getElementById("form1").innerHTML=xmlhttp.responseText;
+                        }
+                    }   
+                    var url='/form1?name='+this.username+'&passworld='+this.userpassworld;
+                    console.log(url);
+                    xmlhttp.open("GET",url,true);
+                    xmlhttp.send();
+                }
+            }
+      })
+
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title></title>
+  </head>
+  <body>
+    <!--//渲染dom效果
+    <div id="app">
+      {{ message }}
+    </div>
+<script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+    })
+</script> -->
+    <!-- <div id="app-2">
+      <span v-bind:title="message">//鼠标绑定事件
+        鼠标悬停几秒钟查看此处动态绑定的提示信息！
+      </span>
+    </div>
+    <script>
+      var app2 = new Vue({
+        el: '#app-2',
+        data: {
+          message: '页面加载于 ' + new Date()
+        }
+      })
+    </script> -->
+    <!-- //条件与循环
+    <div id="app-3">
+     <p v-if="seen">现在你看到我了</p>//for循环为v-for="变量名"
+   </div>
+  <script>
+   var app3 = new Vue({
+     el: '#app-3',//连接id=app-3;
+     data: {//可定义对象,方法,函数,数组[{对象}]
+       seen: true//连接v-if=seen;当他为true时显示,在控制台输入app3.seen=flash则不显示
+     }
+   })
+   </script> -->
+    <!-- //为了让用户和你的应用进行互动，我们可以用 v-on 指令绑定一个事件监听器，
+   //通过它调用我们 Vue 实例中定义的方法
+   <div id="app-5">
+     <p>{{ message }}</p>
+     <button v-on:click="reverseMessage">逆转消息</button>
+   </div>
+   <script>
+    var app5 = new Vue({
+      el: '#app-5',
+      data: {
+        message: 'Hello Vue.js!'//给message赋值
+      },
+      methods: {
+        reverseMessage: function () {
+         //this.message表示指定当前message,split按照 分开,reverse()反向,join()按照 连接.
+          this.message = this.message.split('').reverse().join('')
+        }
+      }
+    })
+  </script>    -->
+    <div id="app-6">
+      <!-- <p>{{ message }}</p> -->
+       <input v-model="message"> <!-- //连接message,使input与p中的message同步 -->
+      <button v-on:click="reverseMessage">逆转消息</button>
+    </div>
+    <script>
+      var app6 = new Vue({
+        el: '#app-6',
+        data: {
+          message: 'Hello Vue!'//首先给定值为hello vue
+        },
+        methods: {
+          reverseMessage: function () {
+          this.message = this.message.split('').reverse().join('')
+          }
+        }
+      })
+    </script>
+    <!-- http://www.bootcss.com/
+    http://www.createjs.cc/demos -->
+
+
+  </body>
+</html>
